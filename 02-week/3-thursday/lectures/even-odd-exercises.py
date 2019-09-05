@@ -55,8 +55,8 @@ def only_odds(list_of_numbers):
 only_odds([11, 20, 42, 97, 23, 10])
 
 
-def separate_odds_and_evens(list_of_numbers):
-    return [only_odds(list_of_numbers), only_evens(list_of_numbers)]
+def separate_odds_and_evens(numbers):
+    return [only_odds(numbers), only_evens(numbers)]
 
 
 list = [11, 293, 4, 3, 3232, 34, 5, 334]
@@ -66,6 +66,7 @@ separate_odds_and_evens(list)
 
 
 # def separate_orders_by_day(orders):
+#     '''Separates the orders by if it's a weekend or weekday
 #     return {
 #         'weekday_orders': only_weekday_orders(orders),
 #         'weekend_orders': only_weekend_orders(orders)
