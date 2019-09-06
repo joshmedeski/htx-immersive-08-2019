@@ -7,15 +7,15 @@ import view
 
 
 def check_if_i_won(current_player):
-    rows = [[data.board[0][0], data.board[0][1], data.board[0][2]],
-            [data.board[1][0], data.board[1][1], data.board[1][2]],
-            [data.board[0][0], data.board[1][0], data.board[2][0]],
-            [data.board[0][1], data.board[1][1], data.board[2][1]],
-            [data.board[0][2], data.board[1][2], data.board[2][2]],
-            [data.board[2][0], data.board[2][1], data.board[2][2]],
-            [data.board[0][0], data.board[1][1], data.board[2][2]],
-            [data.board[2][0], data.board[1][1], data.board[0][2]]]
-    for row in rows:
+    three_in_a_rows = [[data.board[0][0], data.board[0][1], data.board[0][2]],
+                       [data.board[1][0], data.board[1][1], data.board[1][2]],
+                       [data.board[0][0], data.board[1][0], data.board[2][0]],
+                       [data.board[0][1], data.board[1][1], data.board[2][1]],
+                       [data.board[0][2], data.board[1][2], data.board[2][2]],
+                       [data.board[2][0], data.board[2][1], data.board[2][2]],
+                       [data.board[0][0], data.board[1][1], data.board[2][2]],
+                       [data.board[2][0], data.board[1][1], data.board[0][2]]]
+    for row in three_in_a_rows:
         if row[0] == row[1] and row[1] == row[2]:
             return True
     return False
