@@ -7,14 +7,21 @@ import view
 
 
 def check_if_i_won(current_player):
-    for group in data.all_possible_combos:
-        for combo in group:
-            in_a_row = 0
-            for space in combo:
-                if space == current_player:
-                    in_a_row += 1
-            if in_a_row == 3:
-                return True
+    rows = [[data.board[0][0], data.board[0][1], data.board[0][2]],
+            [data.board[1][0], data.board[1][1], data.board[1][2]],
+            [data.board[0][0], data.board[1][0], data.board[2][0]],
+            [data.board[0][1], data.board[1][1], data.board[2][1]],
+            [data.board[0][2], data.board[1][2], data.board[2][2]],
+            [data.board[2][0], data.board[2][1], data.board[2][2]],
+            [data.board[0][0], data.board[1][1], data.board[2][2]],
+            [data.board[2][0], data.board[1][1], data.board[0][2]]]
+    for row in rows:
+        print('Cells')
+        print(row[0])
+        print(row[1])
+        print(row[2])
+        if row[0] == row[1] and row[1] == row[2]:
+            return True
     return False
 
 
@@ -42,8 +49,10 @@ def play_game():
     while winner == '':
         take_turn(current_player)
         if check_if_i_won(current_player):
+            print('I won!')
             winner = current_player
-        # current_player = switch_players(current_player)
+        current_player = switch_players(current_player)
+        print(winner)
         view.board(current_player)
     print(f'Player {winner} won!')
 
