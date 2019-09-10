@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>z index</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .box {
+        position: absolute;
+        padding: 20px;
+        width: 200px;
+        height: 200px;
+      }
+      .top {
+        background: red;
+        z-index: 4;
+      }
+      .another-middle {
+        background: purple;
+        top: 30px;
+        left: 30px;
+        z-index: 3;
+      }
+      .middle {
+        background: blue;
+        top: 50px;
+        left: 50px;
+        z-index: 2;
+      }
+      .bottom {
+        background: yellow;
+        top: 100px;
+        left: 100px;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box top">Top</div>
+    <div class="box another-middle"></div>
+    <div class="box middle">Middle</div>
+    <div class="box bottom">Bottom</div>
+  </body>
+</html>
