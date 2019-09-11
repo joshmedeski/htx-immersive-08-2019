@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Holy Grail Absolute</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      /* SHARED: MEDIUM AND LARGE SCREENS */
+      @media screen and (min-width: 800px) {
+        .header {
+          font-size: 20px;
+          padding: 40px;
+        }
+        .container {
+          position: relative;
+        }
+        .main {
+          position: absolute;
+        }
+        .footer {
+          position: absolute;
+          bottom: 0;
+        }
+      }
+      /* LARGE DESKTOP */
+      @media screen and (min-width: 960px) {
+        .sidebar {
+          width: 20%;
+        }
+        .sidebar-left {
+          position: absolute;
+        }
+        .sidebar-right {
+          right: 0;
+          position: absolute;
+        }
+        .main {
+          width: 60%;
+          left: 20%;
+        }
+      }
+      /* MEDIUM SCREENS (Laptops, iPads, etc...) */
+      @media screen and (min-width: 800px) and (max-width: 960px) {
+        .main {
+          width: 80%;
+        }
+        .sidebars {
+          position: absolute;
+          width: 20%;
+          right: 0;
+        }
+      }
+      /* Mobile (default) */
+      .header {
+        background-color: #999999;
+        padding: 20px;
+      }
+      /* No changes */
+    </style>
+  </head>
+  <body>
+    <header class="header">Header</header>
+    <div class="container">
+      <main class="main">
+        <h1>Article Title</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde pariatur
+          maiores consequatur neque placeat voluptas officiis labore quos ipsum
+          blanditiis.
+        </p>
+      </main>
+      <div class="sidebars">
+        <aside class="sidebar sidebar-left">Sidebar Left</aside>
+        <aside class="sidebar sidebar-right">Sidebar Right</aside>
+      </div>
+    </div>
+    <footer class="footer">Footer</footer>
+  </body>
+</html>

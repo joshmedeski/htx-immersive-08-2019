@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Media Query</title>
+    <style>
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      @media screen and (max-width: 440px) {
+        /* Mobile Screens */
+        .show-for-desktop {
+          display: none;
+        }
+      }
+      @media screen and (min-width: 440px) {
+        /* desktop Screens */
+        .show-for-mobile {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    Hello, this is a <span class="show-for-mobile">mobile</span>
+    <span class="show-for-desktop">desktop</span> device.
+    <img src="./funny-cat.jpg" alt="Photo of funny cat" />
+  </body>
+</html>
