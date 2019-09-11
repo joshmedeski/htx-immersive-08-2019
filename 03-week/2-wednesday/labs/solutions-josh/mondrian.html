@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #666;
+        padding: 100px;
+      }
+      .art {
+        height: 100vh;
+        display: flex;
+      }
+      .column {
+        flex-direction: column;
+      }
+      .wrap {
+        display: flex;
+        justify-content: space-between;
+        flex-grow: 1;
+      }
+      .shape {
+        flex-grow: 1;
+        background-color: #fff;
+        min-width: 50px;
+        min-height: 50px;
+        margin-bottom: 5px;
+        margin-right: 5px;
+        box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+      }
+      .red {
+        background-color: red;
+      }
+      .yellow {
+        background-color: yellow;
+      }
+      .blue {
+        background-color: blue;
+      }
+      .black {
+        background-color: #000;
+      }
+      .double {
+        flex-grow: 2;
+      }
+      .triple {
+        flex-grow: 3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="art">
+      <div class="wrap">
+        <div class="column wrap">
+          <div class="wrap">
+            <div class="yellow shape"></div>
+            <div class="shape"></div>
+          </div>
+          <div class="wrap column">
+            <div class="shape"></div>
+            <div class="red shape"></div>
+            <div class="shape"></div>
+          </div>
+        </div>
+        <div class="column wrap">
+          <div class="shape"></div>
+          <div class="wrap">
+            <div class="black shape"></div>
+            <div class="shape"></div>
+          </div>
+          <div class="yellow shape"></div>
+          <div class="shape"></div>
+        </div>
+        <div class="double column wrap">
+          <div class="yellow shape"></div>
+          <div class="yellow shape"></div>
+          <div class="wrap">
+            <div class="shape"></div>
+            <div class="shape"></div>
+          </div>
+          <div class="shape"></div>
+          <div class="double blue shape"></div>
+          <div class="double red shape"></div>
+        </div>
+        <div class="double column wrap">
+          <div class="column wrap">
+            <div class="blue shape"></div>
+            <div class="double red shape"></div>
+            <div class="shape"></div>
+            <div class="wrap">
+              <div class="shape"></div>
+              <div class="shape"></div>
+            </div>
+            <div class="double yellow shape"></div>
+            <div class="wrap">
+              <div class="shape"></div>
+              <div class="black shape"></div>
+            </div>
+          </div>
+        </div>
+        <div class="column wrap">
+          <div class="wrap">
+            <div class="yellow shape"></div>
+            <div class="black shape"></div>
+          </div>
+          <div class="yellow shape"></div>
+          <div class="black shape"></div>
+          <div class="shape"></div>
+          <div class="shape"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
