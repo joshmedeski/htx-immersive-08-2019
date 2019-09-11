@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Holy Grail Absolute</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      .header,
+      .sidebar,
+      .main {
+        padding: 20px;
+      }
+      .header {
+        background-color: gray;
+      }
+      .container {
+        position: relative;
+      }
+      .sidebar {
+        position: absolute;
+        width: 20%;
+      }
+      .sidebar-left {
+      }
+      .sidebar-right {
+        right: 0;
+      }
+      .main {
+        position: absolute;
+        width: 60%;
+        left: 20%;
+      }
+      .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: lightgray;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">Header</header>
+    <div class="container">
+      <aside class="sidebar sidebar-left">Sidebar Left</aside>
+      <main class="main">Main Content</main>
+      <aside class="sidebar sidebar-right">Sidebar Right</aside>
+    </div>
+    <footer class="footer">Footer</footer>
+  </body>
+</html>
