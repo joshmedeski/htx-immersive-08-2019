@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Javascript 101</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="index.css" />
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
+
+		<script src="exercises/level1.js"></script>
+		<script src="exercises/level2.js"></script>
+		<script src="exercises/level3.js"></script>
+		<script src="exercises/level4.js"></script>
+		<script src="exercises/level5.js"></script>
+		<script src="exercises/level6.js"></script>
+		<script src="exercises/level7.js"></script>
+
+		<script src="index.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-3 mr-auto ml-auto">
+					<div class="logo text-center">
+						<img src="img/logo.png">
+						DigitalCrafts
+					</div>
+					<div class="title">
+						<h1>Javascript 101</h1>
+					</div>
+				</div>
+			</div>
+			<hr />
+			<div class="row">
+				<div class="col-12 content">
+					<p>The excercises below are designed to get you comfortable writing basic JavaScript. They’re organized into 7 levels. Each level corresponds to a .js file in the ./exercises directory. Write your solutions to each exercise inside their corresponding functions. Press the done button for each exercise to see if you got the right answer!</p>
+				</div>
+			</div>
+			<div class="row">
+			  <div class="col-12">
+			    <ul class="nav nav-tabs" id="myTab" role="tablist">
+				  <li class="nav-item">
+				    <a class="nav-link active" id="level-1-tab" data-toggle="tab" href="#lvl1" role="tab" aria-controls="level-1" aria-expanded="true">Level 1</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" id="level-2-tab" data-toggle="tab" href="#lvl2" role="tab" aria-controls="level-2">Level 2</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" id="level-3-tab" data-toggle="tab" href="#lvl3" role="tab" aria-controls="level-3">Level 3</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" id="level-4-tab" data-toggle="tab" href="#lvl4" role="tab" aria-controls="level-4">Level 4</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" id="level-5-tab" data-toggle="tab" href="#lvl5" role="tab" aria-controls="level-5">Level 5</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" id="level-6-tab" data-toggle="tab" href="#lvl6" role="tab" aria-controls="level-6">Level 6</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" id="level-7-tab" data-toggle="tab" href="#lvl7" role="tab" aria-controls="level-7">Level 7</a>
+				  </li>
+				</ul>
+				<div class="tab-content" id="myTabContent">
+				  <div class="tab-pane fade show active" id="lvl1" role="tabpanel" aria-labelledby="level-1-tab">
+				  	<!-- Level 1 -->
+				  	<div class="exercise-content">
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Declaring Variables</div>
+				  				<div class="subtitle">Declare a variable and return it</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testDeclare" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Numbers</div>
+				  				<div class="subtitle">Declare and instantiate a number and return it</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testDeclareNumber" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Floats</div>
+				  				<div class="subtitle">Declare and instantiate a floating point number and return it</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testDeclareFloat" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Strings</div>
+				  				<div class="subtitle">Declare and instantiate a string "Hello World!" and return it</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testDeclareString" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Arrays</div>
+				  				<div class="subtitle">Declare and instantiate an array containing the string "Hello World!" and the number 4 and return it</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testDeclareArray" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Objects</div>
+				  				<div class="subtitle">Declare and instantiate an object containing the key-value pairs key1->"Hello World!" and key2->4, and return it</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testDeclareObject" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Booleans</div>
+				  				<div class="subtitle">Declare and instantiate a boolean value 'false' and return it</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testDeclareBoolean" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  	</div>
+				  </div>
+				  <div class="tab-pane fade" id="lvl2" role="tabpanel" aria-labelledby="level-2-tab">
+				  	<!-- Level 2 -->
+				  	<div class="exercise-content">
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Addition</div>
+				  				<div class="subtitle">Implement number addition</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testAdd" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  	</div>
+				  	<div class="exercise-content">
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Subtraction</div>
+				  				<div class="subtitle">Implement number subtraction</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testSubtract" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  	</div>
+				  	<div class="exercise-content">
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Multiplication</div>
+				  				<div class="subtitle">Implement number addition</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testMultiply" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  	</div>
+				  	<div class="exercise-content">
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Division</div>
+				  				<div class="subtitle">Implement number division</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testDivide" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  	</div>
+					<div class="exercise-content">
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Assignment Operators</div>
+				  				<div class="subtitle">Implement an addition/assignment combo operator</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testAssign" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  	</div>
+				  </div>
+				  <div class="tab-pane fade" id="lvl3" role="tabpanel" aria-labelledby="level-3-tab">
+				  	<!-- Level 3 -->
+				  	<div class="exercise-content">
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">String Concatenation 1</div>
+				  				<div class="subtitle">Concatenate two strings and return the result</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testConcatenation1" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">String Concatenation 2</div>
+				  				<div class="subtitle">Concatenate a string and a number and return the result</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testConcatenation2" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Convert number to string</div>
+				  				<div class="subtitle">Use concatenation to turn the number 12 into a string and return it</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testConvert" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">String Length</div>
+				  				<div class="subtitle">Return the length of a string</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testStringLength" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Substring index</div>
+				  				<div class="subtitle">Find the index of a substring in a string</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testStringIndex" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  	</div>
+				  </div>
+				  <div class="tab-pane fade" id="lvl4" role="tabpanel" aria-labelledby="level-4-tab">
+				  	<!-- Level 4 -->
+				  	<div class="exercise-content">
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">True</div>
+				  				<div class="subtitle">Return the boolean value "true"</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testTrue" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">False</div>
+				  				<div class="subtitle">Return the boolean value "false"</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testFalse" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Not</div>
+				  				<div class="subtitle">Return the opposite of the input boolean value</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testNot" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">And</div>
+				  				<div class="subtitle">Return the logical "and" of the input boolean values</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testAnd" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Or</div>
+				  				<div class="subtitle">Return the logical "or" of the input boolean values</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testOr" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Equivalence</div>
+				  				<div class="subtitle">Return the logical "equivalence" of the input boolean values</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testEquivalence" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  	</div>
+				  </div>
+				  <div class="tab-pane fade" id="lvl5" role="tabpanel" aria-labelledby="level-5-tab">
+				  	<!-- Level 5 -->
+				  	<div class="exercise-content">
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Array push</div>
+				  				<div class="subtitle">Add an element to an array</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testArrayPush" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Array pop</div>
+				  				<div class="subtitle">Remove an element from an array</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testArrayPop" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Array length</div>
+				  				<div class="subtitle">Return the length of an array</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testArrayLength" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Array index</div>
+				  				<div class="subtitle">Return the index of an item in an array</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testArrayIndex" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  	</div>
+				  </div>
+				  <div class="tab-pane fade" id="lvl6" role="tabpanel" aria-labelledby="level-6-tab">
+				  	<!-- Level 6 -->
+				  	<div class="exercise-content">
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">If, Else If, Else</div>
+				  				<div class="subtitle">Return "hello", "world", or "bye" based on the input</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testConditional" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">For loop</div>
+				  				<div class="subtitle">Return an array containing 10 "hello" strings</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testFor" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">While loop</div>
+				  				<div class="subtitle">Empty the array with a while loop</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testWhile" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  	</div>
+				  </div>
+				  <div class="tab-pane fade" id="lvl7" role="tabpanel" aria-labelledby="level-7-tab">
+				  	<!-- Level 7 -->
+				  	<div class="exercise-content">
+				  		<div class="row exercise no-gutters align-items-center">
+				  			<div class="col-8">
+				  				<div class="title">Function</div>
+				  				<div class="subtitle">Write a function that returns an array</div>
+				  			</div>
+				  			<div class="col-4">
+				  				<button id="testFunction" onclick="evalExercise(this)" class="btn btn-primary float-right" type="button">Run</button>
+				  				<div class="result float-right"></div>
+				  			</div>
+				  		</div>
+				  	</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		</div>
+	</body>
+</html>
