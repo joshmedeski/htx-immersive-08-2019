@@ -8,6 +8,13 @@
   </head>
   <body>
     <script>
+      document.body.textContent = "Hello <span>World</span>";
+      var navItems = document.querySelectorAll(".nav a");
+      var navItemsTheHardWay = document
+        .getElementsByClassName("nav")[0]
+        .getElementsByTagName("a");
+    </script>
+    <script>
       // Write a function leetspeak which is given a string, and returns the leetspeak equivalent of the string. To convert text to its leetspeak version, make the following substitutions:
       function leetspeak(word) {
         var upperWord = word.toUpperCase();
