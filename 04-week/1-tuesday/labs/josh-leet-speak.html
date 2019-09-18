@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Leet Speak</title>
+  </head>
+  <body>
+    <script>
+      // Write a function leetspeak which is given a string, and returns the leetspeak equivalent of the string. To convert text to its leetspeak version, make the following substitutions:
+      function leetspeak(word) {
+        var upperWord = word.toUpperCase();
+        var splitWord = upperWord.split("");
+        var convertedWord = [];
+        splitWord.forEach(letter => {
+          convertedWord.push(letterReplace(letter));
+        });
+        return convertedWord.join("");
+      }
+
+      function letterReplace(letter) {
+        switch (letter) {
+          case "A":
+            return 4;
+          case "E":
+            return 3;
+          case "G":
+            return 6;
+          case "I":
+            return 1;
+          case "O":
+            return 0;
+          case "S":
+            return 5;
+          case "T":
+            return 7;
+          default:
+            return letter;
+        }
+      }
+
+      console.log(leetspeak("Leet"));
+      console.log(leetspeak("Speak"));
+      console.log(leetspeak("Random"));
+      console.log(leetspeak("Josh"));
+    </script>
+  </body>
+</html>
