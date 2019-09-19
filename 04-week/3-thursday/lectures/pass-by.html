@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Pass By</title>
+  </head>
+  <body>
+    <script>
+      var name = "Josh";
+      function name(param) {
+        // param only accessible here
+      }
+
+      var name = "Josh";
+
+      function callName() {
+        alert(`Hi, my name is ${name}`);
+        name = "John";
+        alert(`Hi, my name is ${name}`);
+      }
+
+      callName();
+
+      // Pass by value
+      var myAge = 21;
+      function convertAge(age) {
+        age += 10;
+        console.group("Convert Age");
+        console.log("age", age);
+        console.log("myAge", myAge);
+        console.groupEnd();
+      }
+      convertAge(myAge); // passes value: 21
+
+      // Pass by reference
+      var meGlobal = { age: 21 };
+      function changeAgeByReference(meLocal) {
+        meLocal.age += 10;
+        console.group("Change age by Reference");
+        console.log("local", meLocal);
+        console.log("global", meGlobal);
+        console.groupEnd();
+      }
+      changeAgeByReference(meGlobal); // passes reference to: { age: 21 }
+
+      var list = ["eggs", "bacon", "toast", "beans"];
+      function loop(localList) {
+        var newList = localList;
+        localList.pop();
+      }
+      loop(list);
+      console.log(list);
+
+      // Scope
+      function localScope() {
+        var localVariable = "Hi";
+      }
+      console.log(localVariable); // Doesn't exist
+    </script>
+  </body>
+</html>

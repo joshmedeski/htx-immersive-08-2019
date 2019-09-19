@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Expressions</title>
+  </head>
+  <body>
+    <script>
+      //   function name() {}
+      //   var name = function() {};
+      var area = function(width, height) {
+        return width * height;
+      };
+      var size = area(3, 4);
+      console.log(size);
+
+      // Self invoking function
+      (function() {
+        var x = "Hello!!"; // I will invoke myself
+        console.log(x);
+      })();
+
+      // Order matters (sometimes)
+      var someNumber = 5;
+      var sumResult = sum(someNumber, 4);
+
+      function sum(width, height) {
+        return width + height;
+      }
+
+      console.log(sumResult);
+
+      // Undefined params and returning
+      function withParams(param1, param2) {
+        console.group("Default Params");
+        console.log(param1);
+        console.log(param2);
+      }
+
+      var withParamsOutput = withParams();
+      console.log(withParamsOutput);
+      console.groupEnd();
+
+      // Default param values
+      function defaultParams(param1, param2 = "example") {
+        console.group("Default Params");
+        console.log("param1", param1);
+        console.log("param2", param2);
+        console.groupEnd();
+      }
+
+      var defaultParamsOutput = defaultParams();
+      var defaultParamsOutput1 = defaultParams("sample");
+      var defaultParamsOutput2 = defaultParams("different", "sample");
+      console.log(defaultParamsOutput);
+
+      // Undefined
+      function add(num1, num2) {
+        num1 + num2;
+        return;
+      }
+
+      console.log(add(1, 2));
+      console.log(add(2));
+    </script>
+  </body>
+</html>
