@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Callback Functions</title>
+  </head>
+  <body>
+    <script>
+      var add = function(num1, num2) {
+        return num1 + num2;
+      };
+      var subtract = function(num1, num2) {
+        return num1 - num2;
+      };
+
+      var calc = function(num1, num2, operation) {
+        return operation(num1, num2);
+      };
+
+      calc(1, 2, add); // 3
+      calc(4, 8, subtract); // 4
+
+      var list = [0, 1, 2, 3, 4, 5, 6];
+
+      var addTwo = function(value, index, fullArray) {
+        fullArray[index] = value + 2;
+      };
+
+      list.forEach(addTwo);
+
+      list.forEach(function(value, index, fullArray) {
+        fullArray[index] = value + 2;
+      });
+
+      console.log(list);
+      var newListSquared = list.map(function(value) {
+        return value * value;
+      });
+      console.log(newListSquared);
+
+      var globalVariable = "globalThing";
+      var anonymousFunction = list.map(function(value) {
+        return value * value;
+      });
+
+      var shorter = list.map(value => {
+        return value * value;
+      });
+
+      var shortest = list.map(value => value * value);
+    </script>
+  </body>
+</html>
