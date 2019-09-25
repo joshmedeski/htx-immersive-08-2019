@@ -12,6 +12,7 @@ xhr.onreadystatechange = function() {
   if (xhr.readyState === DONE) {
     if (xhr.status === OK) {
       console.log(xhr.responseText); // 'This is the output.'
+      console.log(JSON.parse(xhr.responseText));
     } else {
       console.log("Error: " + xhr.status); // An error occurred during the request.
     }
@@ -24,10 +25,18 @@ $.ajax({
   type: "GET",
   url: "http://www.omdbapi.com/?i=tt3896198&apikey=e03ca193",
   dataType: "JSON", // data type expected from server
-  success: function(data) {
-    console.log(data);
+  success: function(response) {
+    console.log(response);
+    showMovieDetails(response.Title, response.Released);
   },
   error: function(error) {
     console.log("Error: " + error);
   }
 });
+
+function showMovieDetails(title, released) {
+  var heading = $("<h1/>").text(title);
+  $("body").append(heading);
+  var released = $("<h2/>").text(released);
+  $("body").append(released);
+}
