@@ -22,7 +22,7 @@ h3 {
 }
 
 h1 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 3px;
   color: tan;
@@ -39,10 +39,17 @@ h1 {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.end.button {
+  color: black;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+}
+
 .table {
   background-image: url(bg-table.jpg);
   color: white;
-  padding: 40px;
+  padding: 30px;
   margin: 20px auto;
   border-radius: 20px;
   border: 3px solid tan;
@@ -50,11 +57,13 @@ h1 {
 }
 
 .message {
-  text-align: center;
+  margin-bottom: 20px;
 }
 
 .hand {
-  min-height: 100px;
+  display: flex;
+  align-items: center;
+  min-height: 130px;
   background-color: rgba(255, 255, 255, 0.2);
   margin-bottom: 30px;
   border-radius: 3px;
@@ -67,8 +76,25 @@ h1 {
 }
 
 .card {
-  margin-right: 10px;
   max-height: 100px;
   width: auto;
   margin: 0;
+  margin-right: 15px;
+}
+
+.popup-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.popup {
+  background-color: #fff;
+  text-align: center;
+  color: black;
+  padding: 20px;
 }

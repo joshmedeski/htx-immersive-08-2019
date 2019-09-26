@@ -12,9 +12,18 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="popup-container" style="display: none;">
+      <div class="popup">
+        <h2>Game Over</h2>
+        <p id="message" class="message"></p>
+        <a href="index.html" class="end button">
+          Start Over
+        </a>
+      </div>
+    </div>
+
     <div class="table">
       <h1>Blackjack</h1>
-      <h2 id="message" class="message"></h2>
 
       <h3>Dealer: <span id="dealer-points"></span></h3>
       <div id="dealer-hand" class="hand"></div>
@@ -34,9 +43,6 @@
         <button onclick="stand()" class="play button" style="display: none;">
           Stand
         </button>
-        <a href="index.html" class="end button" style="display: none;">
-          Start Over
-        </a>
       </div>
     </div>
 
