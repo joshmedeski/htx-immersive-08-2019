@@ -57,7 +57,15 @@ function card(person) {
   let card = deck.pop();
   person.hand.push(card);
   let element = document.createElement("img");
-  element.setAttribute("src", `card-images/${card.name}_of_${card.suit}.png`);
+  // swap hole card for back image
+  // if first card in players hand
+  if (person.name == "dealer" && person.hand.length == 1) {
+    element.setAttribute("src", `card-back.png`);
+    element.setAttribute("id", "hole-card");
+  } else {
+    element.setAttribute("src", `card-images/${card.name}_of_${card.suit}.png`);
+  }
+
   element.setAttribute("alt", `photo of ${card.name} of ${card.suit} card`);
   element.setAttribute("class", "card");
   return element;
@@ -81,7 +89,17 @@ function stand() {
   if (dealer.points > 21 || player.points > dealer.points) {
     winner = "Player";
   }
+  showCardInHole();
   gameOver(`${winner} wins`);
+}
+
+function showCardInHole() {
+  document
+    .getElementById("hole-card")
+    .setAttribute(
+      "src",
+      `card-images/${dealer.hand[0].name}_of_${dealer.hand[0].suit}.png`
+    );
 }
 
 function calcPoints(hand) {
