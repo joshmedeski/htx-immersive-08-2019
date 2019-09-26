@@ -1,4 +1,4 @@
-var deck = shuffle(generateDeck());
+var deck = shuffle(generateDeck().concat(generateDeck(), generateDeck()));
 
 class Person {
   constructor(name) {
