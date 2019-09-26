@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Blackjack</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="table">
+      <h1>Blackjack</h1>
+      <h2 id="message" class="message"></h2>
+
+      <h3>Dealer: <span id="dealer-points"></span></h3>
+      <div id="dealer-hand" class="hand">
+        <img
+          src="card-images/2_of_clubs.png"
+          alt="photo of 2 of clubs card"
+          class="card"
+        />
+        <img
+          src="card-images/2_of_clubs.png"
+          alt="photo of 2 of clubs card"
+          class="card"
+        />
+      </div>
+
+      <h3>Player: <span id="player-points"></span></h3>
+      <div id="player-hand" class="hand">
+        <img
+          src="card-images/2_of_clubs.png"
+          alt="photo of 2 of clubs card"
+          class="card"
+        />
+        <img
+          src="card-images/2_of_clubs.png"
+          alt="photo of 2 of clubs card"
+          class="card"
+        />
+      </div>
+
+      <div class="buttons">
+        <button id="deal-button">Deal</button>
+        <button id="hit-button">Hit</button>
+        <button id="stand-button">Stand</button>
+      </div>
+    </div>
+    <script src="blackjack.js"></script>
+  </body>
+</html>
