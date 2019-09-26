@@ -2,6 +2,7 @@ var deck = shuffle(generateDeck());
 
 class Person {
   constructor(name) {
+    this.name = name;
     this.handId = name + "-hand";
     this.pointsId = name + "-points";
     this.hand = [];
@@ -66,6 +67,9 @@ function draw(person) {
   document.getElementById(person.handId).appendChild(card(person));
   person.points = calcPoints(person.hand);
   $(`#${person.pointsId}`).text(person.points);
+  if (person.points > 21) {
+    $(`#message`).text(`Game Over: The ${person.name} busted`);
+  }
 }
 
 function calcPoints(hand) {

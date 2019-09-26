@@ -48,6 +48,10 @@ button {
   max-width: 700px;
 }
 
+.message {
+  text-align: center;
+}
+
 .hand {
   min-height: 100px;
   background-color: rgba(255, 255, 255, 0.2);
