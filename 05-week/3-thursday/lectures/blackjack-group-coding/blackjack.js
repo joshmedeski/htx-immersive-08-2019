@@ -2,8 +2,10 @@ var deck = generateDeck();
 
 class Person {
   constructor(name) {
-    this.id = name + "-hand";
+    this.handId = name + "-hand";
+    this.pointsId = name + "-points";
     this.hand = [];
+    this.points = 0;
   }
 }
 
@@ -50,7 +52,17 @@ function card(person) {
 }
 
 function draw(person) {
-  document.getElementById(person.id).appendChild(card(person));
+  document.getElementById(person.handId).appendChild(card(person));
+  person.points = calcPoints(person.hand);
+  $(`#${person.pointsId}`).text(person.points);
+}
+
+function calcPoints(hand) {
+  let points = 0;
+  hand.forEach(card => {
+    points += card.point;
+  });
+  return points;
 }
 
 function deal() {
