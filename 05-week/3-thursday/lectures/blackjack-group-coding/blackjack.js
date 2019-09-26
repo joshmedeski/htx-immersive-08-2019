@@ -78,7 +78,7 @@ function stand() {
     draw(dealer);
   }
   var winner = "Dealer";
-  if (player.points > dealer.points) {
+  if (dealer.points > 21 || player.points > dealer.points) {
     winner = "Player";
   }
   gameOver(`${winner} wins`);
