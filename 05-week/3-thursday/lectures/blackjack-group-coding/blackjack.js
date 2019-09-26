@@ -76,6 +76,11 @@ function stand() {
   while (dealer.points < 17) {
     draw(dealer);
   }
+  var winner = "Dealer";
+  if (player.points > dealer.points) {
+    winner = "Player";
+  }
+  $("#message").text(`${winner} wins`);
 }
 
 function calcPoints(hand) {
