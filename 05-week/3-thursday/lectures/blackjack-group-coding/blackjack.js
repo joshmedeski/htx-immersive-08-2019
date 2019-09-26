@@ -55,7 +55,7 @@ function draw(person) {
 
 function deal() {
   draw(player);
-  draw(player);
   draw(dealer);
+  draw(player);
   draw(dealer);
 }
