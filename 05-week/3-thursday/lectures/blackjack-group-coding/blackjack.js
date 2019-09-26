@@ -1,4 +1,4 @@
-var deck = generateDeck();
+var deck = shuffle(generateDeck());
 
 class Person {
   constructor(name) {
@@ -11,6 +11,17 @@ class Person {
 
 var player = new Person("player");
 var dealer = new Person("dealer");
+
+// credit: https://gist.github.com/pizzapanther/fd7e9bd1a971c76b17c1159392a26a2e
+function shuffle(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
 
 function generateDeck() {
   let tempDeck = [];
