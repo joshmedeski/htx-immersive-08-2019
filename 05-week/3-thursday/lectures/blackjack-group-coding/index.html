@@ -17,39 +17,23 @@
       <h2 id="message" class="message"></h2>
 
       <h3>Dealer: <span id="dealer-points"></span></h3>
-      <div id="dealer-hand" class="hand">
-        <img
-          src="card-images/2_of_clubs.png"
-          alt="photo of 2 of clubs card"
-          class="card"
-        />
-        <img
-          src="card-images/2_of_clubs.png"
-          alt="photo of 2 of clubs card"
-          class="card"
-        />
-      </div>
+      <div id="dealer-hand" class="hand"></div>
 
       <h3>Player: <span id="player-points"></span></h3>
-      <div id="player-hand" class="hand">
-        <img
-          src="card-images/2_of_clubs.png"
-          alt="photo of 2 of clubs card"
-          class="card"
-        />
-        <img
-          src="card-images/2_of_clubs.png"
-          alt="photo of 2 of clubs card"
-          class="card"
-        />
-      </div>
+      <div id="player-hand" class="hand"></div>
 
       <div class="buttons">
-        <button id="deal-button">Deal</button>
-        <button id="hit-button">Hit</button>
-        <button id="stand-button">Stand</button>
+        <button onclick="deal()">Deal</button>
+        <button onclick="hit()">Hit</button>
+        <button onclick="stand()">Stand</button>
       </div>
     </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
     <script src="blackjack.js"></script>
   </body>
 </html>
