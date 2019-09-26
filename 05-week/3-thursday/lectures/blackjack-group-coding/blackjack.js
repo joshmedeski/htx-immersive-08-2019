@@ -114,9 +114,10 @@ function deal() {
   draw(player);
   draw(dealer);
 
-  if (dealer.points == 21 && player.points == 21) {
-    gameOver("Dealer wins");
-  } else if (dealer.points == 21 && player.points != 21) {
+  if (
+    (dealer.points == 21 && player.points == 21) ||
+    (dealer.points == 21 && player.points != 21)
+  ) {
     gameOver("Dealer wins");
   } else if (player.points == 21 && dealer.points != 21) {
     gameOver("Player wins");
