@@ -84,6 +84,19 @@ h1 {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.dealer-container {
+  display: flex;
+}
+
+.dealer.hand-container {
+  margin-left: 20px;
+  flex-grow: 1;
+}
+
+.card:last-child {
+  margin: 0;
+}
+
 .buttons {
   text-align: center;
 }

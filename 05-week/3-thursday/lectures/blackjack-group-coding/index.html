@@ -25,16 +25,25 @@
     <div class="table">
       <h1>Blackjack</h1>
 
+      <div></div>
+
       <div class="table-layout">
         <div class="hands-container">
-          <div class="hand-container">
-            <h3>Dealer: <span id="dealer-points"></span></h3>
-            <div id="dealer-hand" class="hand">
-              <img
-                src="./card-back.png"
-                alt="Back of playing card"
-                class="card"
-              />
+          <div class="dealer-container">
+            <div class="hand-container">
+              <h3>Deck</h3>
+              <div class="hand">
+                <img
+                  src="./card-back.png"
+                  alt="Back of playing card"
+                  class="card"
+                />
+              </div>
+            </div>
+
+            <div class="dealer hand-container">
+              <h3>Dealer: <span id="dealer-points"></span></h3>
+              <div id="dealer-hand" class="hand"></div>
             </div>
           </div>
 
