@@ -72,6 +72,12 @@ function draw(person) {
   }
 }
 
+function stand() {
+  while (dealer.points < 17) {
+    draw(dealer);
+  }
+}
+
 function calcPoints(hand) {
   let totalPoints = 0;
   descHandPoints = hand.map(card => card.point).sort((a, b) => b - a);
