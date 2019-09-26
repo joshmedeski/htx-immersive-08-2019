@@ -1,5 +1,15 @@
 var deck = generateDeck();
 
+class Person {
+  constructor(name) {
+    this.id = name + "-hand";
+    this.hand = [];
+  }
+}
+
+var player = new Person("player");
+var dealer = new Person("dealer");
+
 function generateDeck() {
   let tempDeck = [];
   for (let i = 1; i <= 13; i++) {
@@ -29,21 +39,23 @@ function cardName(number) {
   }
 }
 
-function card() {
-  let card = document.createElement("img");
-  card.setAttribute("src", "card-images/2_of_clubs.png");
-  card.setAttribute("alt", "photo of 2 of clubs card");
-  card.setAttribute("class", "card");
-  return card;
+function card(person) {
+  let card = deck.pop();
+  person.hand.push(card);
+  let element = document.createElement("img");
+  element.setAttribute("src", `card-images/${card.name}_of_${card.suit}.png`);
+  element.setAttribute("alt", `photo of ${card.name} of ${card.suit} card`);
+  element.setAttribute("class", "card");
+  return element;
 }
 
 function draw(person) {
-  document.getElementById(person + "-hand").appendChild(card());
+  document.getElementById(person.id).appendChild(card(person));
 }
 
 function deal() {
-  draw("player");
-  draw("player");
-  draw("dealer");
-  draw("dealer");
+  draw(player);
+  draw(player);
+  draw(dealer);
+  draw(dealer);
 }
