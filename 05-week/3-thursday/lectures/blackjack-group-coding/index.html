@@ -22,10 +22,13 @@
       <h3>Player: <span id="player-points"></span></h3>
       <div id="player-hand" class="hand"></div>
 
-      <div class="buttons">
-        <button onclick="deal()">Deal</button>
-        <button onclick="draw(player)">Hit</button>
-        <button onclick="stand()">Stand</button>
+      <div class="buttons" id="game-active-buttons">
+        <button onclick="deal()" class="button">Deal</button>
+        <button onclick="draw(player)" class="button">Hit</button>
+        <button onclick="stand()" class="button">Stand</button>
+      </div>
+      <div class="buttons" id="game-over-buttons" style="display:none;">
+        <a class="button" href="index.html">Start Over</a>
       </div>
     </div>
 

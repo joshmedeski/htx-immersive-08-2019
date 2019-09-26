@@ -29,7 +29,8 @@ h1 {
   text-align: center;
 }
 
-button {
+.button {
+  text-decoration: none;
   color: white;
   padding: 5px 10px;
   font-size: 20px;

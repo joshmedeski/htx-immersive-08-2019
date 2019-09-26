@@ -68,7 +68,7 @@ function draw(person) {
   person.points = calcPoints(person.hand);
   $(`#${person.pointsId}`).text(person.points);
   if (person.points > 21) {
-    $(`#message`).text(`Game Over: The ${person.name} busted`);
+    gameOver(`Game Over: The ${person.name} busted`);
   }
 }
 
@@ -80,7 +80,7 @@ function stand() {
   if (player.points > dealer.points) {
     winner = "Player";
   }
-  $("#message").text(`${winner} wins`);
+  gameOver(`${winner} wins`);
 }
 
 function calcPoints(hand) {
@@ -94,6 +94,12 @@ function calcPoints(hand) {
     }
   });
   return totalPoints;
+}
+
+function gameOver(message) {
+  $("#message").text(message);
+  $("#game-active-buttons").hide();
+  $("#game-over-buttons").show();
 }
 
 function deal() {
