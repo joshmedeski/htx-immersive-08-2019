@@ -25,11 +25,25 @@
     <div class="table">
       <h1>Blackjack</h1>
 
-      <h3>Dealer: <span id="dealer-points"></span></h3>
-      <div id="dealer-hand" class="hand"></div>
+      <div class="table-layout">
+        <div class="hands-container">
+          <div class="hand-container">
+            <h3>Dealer: <span id="dealer-points"></span></h3>
+            <div id="dealer-hand" class="hand">
+              <img
+                src="./card-back.png"
+                alt="Back of playing card"
+                class="card"
+              />
+            </div>
+          </div>
 
-      <h3>Player: <span id="player-points"></span></h3>
-      <div id="player-hand" class="hand"></div>
+          <div class="hand-container">
+            <h3>Player: <span id="player-points"></span></h3>
+            <div id="player-hand" class="hand"></div>
+          </div>
+        </div>
+      </div>
 
       <div class="buttons">
         <button onclick="deal()" class="start button">Deal</button>
