@@ -58,11 +58,16 @@ function draw(person) {
 }
 
 function calcPoints(hand) {
-  let points = 0;
-  hand.forEach(card => {
-    points += card.point;
+  let totalPoints = 0;
+  descHandPoints = hand.map(card => card.point).sort((a, b) => b - a);
+  descHandPoints.forEach(point => {
+    if (point == 1 && totalPoints < 11) {
+      totalPoints += 11;
+    } else {
+      totalPoints += point;
+    }
   });
-  return points;
+  return totalPoints;
 }
 
 function deal() {
