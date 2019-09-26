@@ -73,6 +73,8 @@ function draw(person) {
 }
 
 function stand() {
+  $(".play").hide();
+  $(".end").show();
   while (dealer.points < 17) {
     draw(dealer);
   }
@@ -97,12 +99,17 @@ function calcPoints(hand) {
 }
 
 function gameOver(message) {
+  $(".start").hide();
+  $(".play").hide();
+  $(".end").show();
   $("#message").text(message);
   $("#game-active-buttons").hide();
   $("#game-over-buttons").show();
 }
 
 function deal() {
+  $(".start").hide();
+  $(".play").show();
   draw(player);
   draw(dealer);
   draw(player);
