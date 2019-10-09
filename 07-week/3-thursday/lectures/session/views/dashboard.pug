@@ -1,4 +1,13 @@
-extend layout
+extend account
 
-block content
-  h2 Welcome to the dashboard
+append content
+  h3 Dashboard
+  h5 My Favorites
+  if message
+    p= message
+  if favMovies
+    ul
+    for movie in favMovies
+      li= movie.title
+
+  include includes/add-movie

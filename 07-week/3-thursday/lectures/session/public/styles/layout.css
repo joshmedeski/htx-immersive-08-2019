@@ -2,6 +2,12 @@
   background-color: #eee;
 }
 
-.header-logo {
-  max-width: 200px;
+.header-title {
+  font-size: 20px;
+  margin: 0;
+}
+
+.content {
+  min-height: 80vh;
+  padding: 20px 0;
 }

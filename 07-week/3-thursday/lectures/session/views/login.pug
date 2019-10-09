@@ -1,12 +1,8 @@
 extend layout
 
 block content
-  form(method="POST" action="/login")
+  form(method="POST" action="/account/login")
     .form-group
-      label(for='email') Email address
-      input#email.form-control(type='email' aria-describedby='emailHelp' placeholder='Enter email' name="email")
-      small#emailHelp.form-text.text-muted We&apos;ll never share your email with anyone else.
-    .form-group
-      label(for='password') Password
-      input#password.form-control(type='password' placeholder='Enter password' name="password")
+      label(for='name') Name
+      input#name.form-control(type='text' aria-describedby='emailHelp' placeholder='Enter your name' name="name")
     button.btn.btn-primary Login

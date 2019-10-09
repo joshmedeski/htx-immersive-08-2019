@@ -1,10 +1,20 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const session = require("express-session");
+const accountRouter = require("./routes/account");
 const port = 3000;
 const app = express();
 
-app.use(express.static("public"));
 app.set("view engine", "pug");
+
+app.use(
+  session({
+    secret: "you don't know my session secret, ha!",
+    resave: false,
+    saveUninitialized: true
+  })
+);
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/", function(req, res) {
@@ -25,9 +35,11 @@ app.get("/movies", function(req, res) {
   res.render("movies", { movies: movies });
 });
 
-app.get("/movies/:movie", function(req, res) {
+app.use("/account", accountRouter);
+
+app.get("/movies/:slug", function(req, res) {
   let filteredMovies = movies.filter(movie => {
-    return movie.slug === req.params.movie;
+    return movie.slug === req.params.slug;
   });
   console.log(filteredMovies);
   if (filteredMovies.length < 1) {
@@ -40,19 +52,8 @@ app.get("/about/us", function(req, res) {
   res.render("about", { title: "Hey", message: "Hello there!" });
 });
 
-app.get("/dashboard", function(req, res) {
-  res.render("dashboard");
-});
-
-app.get("/login", function(req, res) {
-  res.render("login");
-});
-
-app.post("/login", function(req, res) {
-  console.log(req.body);
-  // check if user's email and password are valid
-  // save login state for browser
-  res.redirect("/dashboard");
+app.get("/account", function(req, res) {
+  res.render("account");
 });
 
 app.listen(port, () => {
