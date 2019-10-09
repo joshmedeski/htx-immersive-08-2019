@@ -1,0 +1,8 @@
+extend layout
+
+block content
+  ul
+  each movie in movies
+    li
+      - var urlSlug = movie.slug
+      a(href="/movies/" + urlSlug)= movie.title
