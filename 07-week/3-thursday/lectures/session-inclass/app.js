@@ -1,11 +1,24 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const session = require("express-session");
 const port = 3000;
 const app = express();
+const accountRouter = require("./routes/account");
+
+app.set("view engine", "pug");
+
+app.use(
+  session({
+    secret: "whatever the heck we want because we can",
+    resave: false,
+    saveUninitialized: true
+  })
+);
 
 app.use(express.static("public"));
-app.set("view engine", "pug");
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use("/account", accountRouter);
 
 app.get("/", function(req, res) {
   res.render("index", { title: "Hey", message: "Hello there!" });
@@ -42,17 +55,6 @@ app.get("/about/us", function(req, res) {
 
 app.get("/dashboard", function(req, res) {
   res.render("dashboard");
-});
-
-app.get("/login", function(req, res) {
-  res.render("login");
-});
-
-app.post("/login", function(req, res) {
-  console.log(req.body);
-  // check if user's email and password are valid
-  // save login state for browser
-  res.redirect("/dashboard");
 });
 
 app.listen(port, () => {

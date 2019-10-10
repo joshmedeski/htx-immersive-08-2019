@@ -1,16 +1,15 @@
 header.header
-  .row
-    .col
-      img.header-logo(src="/images/logo.png" alt="Templating Language logo")
-    .col
-      ul.nav
-        li.nav-item
-          a.nav-link.active(href='/') Home
-        li.nav-item
-          a.nav-link(href="/movies") Movies
-        li.nav-item
-          a.nav-link(href='/about/us') About Us
-        li.nav-item
-          a.nav-link(href='/contact') Contact
-        li.nav-item
-          a.nav-link(href="/login") Login
+  .container
+    .row.d-flex.align-items-center.justify-content-between
+      .col.col-md-auto
+        h1.header-title My Movies
+      .col.col-md-auto
+        ul.nav
+          li.nav-item
+            a.nav-link.active(href='/') Home
+          li.nav-item
+            a.nav-link(href="/movies") Movies
+          li.nav-item
+            a.nav-link(href='/about/us') About Us
+          li.nav-item
+            a.nav-link(href="/account") Account
