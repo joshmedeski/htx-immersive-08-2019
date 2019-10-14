@@ -5,6 +5,7 @@ const accountRouter = require("./routes/account");
 const port = 3000;
 const app = express();
 
+// Setup
 app.set("view engine", "pug");
 
 app.use(
@@ -17,6 +18,7 @@ app.use(
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// Routes
 app.get("/", function(req, res) {
   res.render("index", { title: "Hey", message: "Hello there!" });
 });
@@ -56,6 +58,7 @@ app.get("/account", function(req, res) {
   res.render("account");
 });
 
+// Starts Server
 app.listen(port, () => {
   console.log(`Port ${port} is running`);
 });
