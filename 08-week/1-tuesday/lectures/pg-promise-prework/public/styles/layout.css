@@ -1,0 +1,13 @@
+.header {
+  background-color: #eee;
+}
+
+.header-title {
+  font-size: 20px;
+  margin: 0;
+}
+
+.content {
+  min-height: 80vh;
+  padding: 20px 0;
+}

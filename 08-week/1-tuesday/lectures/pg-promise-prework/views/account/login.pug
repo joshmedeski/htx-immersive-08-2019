@@ -1,0 +1,13 @@
+extend ../base
+
+block base
+  img(src="/images/logo.jpg" alt="Logo")
+  .container
+    .row
+      .col
+        h1 My Movies - Login
+        form(method="POST" action="/account/login")
+          .form-group
+            label(for='name') Name
+            input#name.form-control(name="name" type='text' aria-describedby='emailHelp' placeholder='Enter name')
+          button.btn.btn-primary Login
