@@ -3,8 +3,6 @@ const router = express.Router();
 const db = require("../database");
 
 function loginRedirect(req, res, next) {
-  console.log("login redirect");
-  console.log(req.session.user_id);
   if (req.session.user_id) {
     res.redirect("/account/dashboard");
   } else {
@@ -13,8 +11,6 @@ function loginRedirect(req, res, next) {
 }
 
 function authenticate(req, res, next) {
-  console.log("login redirect");
-  console.log(req.session.user_id);
   // if not logged in, go to login page
   if (!req.session.user_id) {
     res.redirect("/account/login");
@@ -49,7 +45,6 @@ router.post("/add", authenticate, (req, res) => {
 });
 
 router.get("/login", loginRedirect, function(req, res) {
-  console.log("login");
   let data = {};
   if (req.query.registeredSuccessfully) data.registeredSuccessfully = true;
   res.render("account/login", data);
@@ -86,7 +81,6 @@ router.get("/logout", function(req, res) {
 router.post("/login", async function(req, res) {
   let user = await db.login(req.body.email, req.body.password);
   if (req.session) {
-    console.log("session is working");
     req.session.user_id = user.id;
   }
   // check if user's email and password are valid

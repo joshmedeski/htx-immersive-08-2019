@@ -7,5 +7,6 @@ block content
     strong Genre:
     span= movie.genre
     form(method="POST" action="/account/favorites")
-      input(type="hidden" name="id" value=movie.id)
+      - var movieId = movie.id
+      input(type="hidden" name="movie_id" value=movieId)
       button Add to favorites

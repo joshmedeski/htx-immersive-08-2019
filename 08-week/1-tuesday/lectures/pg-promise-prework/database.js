@@ -10,10 +10,9 @@ async function getMovie(id) {
 }
 
 async function getFavorites(userId) {
-  console.log("ADD TO FAVORITES!");
-  console.log(userId);
   return await db.any(
-    "SELECT * FROM favorites INNER JOIN movies ON(favorites.movie_id = movies.id);"
+    "SELECT * FROM favorites INNER JOIN movies ON(favorites.movie_id = movies.id) WHERE user_id = $1;",
+    [userId]
   );
 }
 
@@ -39,6 +38,9 @@ async function login(email, password) {
 
 async function addToFavorites(movieId, userId) {
   try {
+    console.log("adding to favorites");
+    console.log(movieId);
+    console.log(userId);
     return await db.none(
       "insert into favorites (movie_id, user_id) values ($1, $2)",
       [movieId, userId]
