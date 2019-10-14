@@ -31,8 +31,10 @@ app.get("/movies", async (req, res) => {
 });
 
 app.get("/movies/:id", async (req, res) => {
-  let movie = await db.getMovie(req.params.id);
-  res.render("movie", { movie: movie });
+  let data = {};
+  data.movie = await db.getMovie(req.params.id);
+  if (req.session.user_id) data.userId = req.session.user_id;
+  res.render("movie", data);
 });
 
 app.get("/about/us", function(req, res) {
