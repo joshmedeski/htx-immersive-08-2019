@@ -1,13 +1,15 @@
 extend ../base
 
 block base
-  img(src="/images/logo.jpg" alt="Logo")
   .container
     .row
       .col
         h1 My Movies - Login
         form(method="POST" action="/account/login")
           .form-group
-            label(for='name') Name
-            input#name.form-control(name="name" type='text' aria-describedby='emailHelp' placeholder='Enter name')
+            label(for='email') Email
+            input#email.form-control(name="email" type='text' aria-describedby='emailHelp' placeholder='Enter email')
+          .form-group
+            label(for='password') Password
+            input#password.form-control(name="password" type='password' aria-describedby='passwordHelp' placeholder='Enter password')
           button.btn.btn-primary Login
