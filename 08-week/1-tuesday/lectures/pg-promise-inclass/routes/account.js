@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
+const db = require("../database");
 
 function loginRedirect(req, res, next) {
-  if (req.session.name) {
+  if (req.session.user_id) {
     res.redirect("/account/dashboard");
   } else {
     next();
@@ -11,7 +12,7 @@ function loginRedirect(req, res, next) {
 
 function authenticate(req, res, next) {
   // if not logged in, go to login page
-  if (!req.session.name) {
+  if (!req.session.user_id) {
     res.redirect("/account/login");
   } else {
     // otherwise continue what you were doing
@@ -22,6 +23,21 @@ function authenticate(req, res, next) {
 // URI: /account/
 router.get("/", authenticate, (req, res) => {
   res.render("account/account");
+});
+
+router.get("/registration", (req, res) => {
+  res.render("account/registration");
+});
+
+router.post("/new", async (req, res) => {
+  try {
+    // create user
+    await db.createUser(req.body.email, req.body.password);
+    res.redirect("/account/login?registeredSuccessfully=true");
+  } catch (e) {
+    console.error(e);
+    res.send(e);
+  }
 });
 
 // /account/dashboard
@@ -45,7 +61,9 @@ router.post("/add", authenticate, (req, res) => {
 });
 
 router.get("/login", loginRedirect, function(req, res) {
-  res.render("account/login");
+  let data = {};
+  if (req.query.registeredSuccessfully) data.registeredSuccessfully = true;
+  res.render("account/login", data);
 });
 
 router.get("/logout", function(req, res) {
@@ -53,15 +71,23 @@ router.get("/logout", function(req, res) {
   res.redirect("/account/login");
 });
 
-router.post("/login", function(req, res) {
-  console.log(req.body);
-  if (req.session) {
-    console.log("session is working");
-    req.session.name = req.body.name;
+router.post("/login", async function(req, res) {
+  try {
+    // check that user exists with email
+    let user = await db.findUser(req.body.email);
+    if (!user) throw new Error("No user found, please try again");
+    // check that password matches db password
+    if (user.password == req.body.password) {
+      // save user's info to session
+      req.session.user_id = user.id;
+      res.redirect("/account/dashboard");
+    } else {
+      throw new Error("Login failed, check your username and password");
+    }
+  } catch (e) {
+    console.error(e);
+    res.send(e);
   }
-  // check if user's email and password are valid
-  // save login state for browser
-  res.redirect("/account/dashboard");
 });
 
 module.exports = router;

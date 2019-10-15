@@ -1,8 +1,9 @@
 extend layout
 
 block content
+  h2 Movies
   ul
   each movie in movies
     li
-      - var urlSlug = movie.slug
-      a(href="/movies/" + urlSlug)= movie.title
+      - var url = "/movies/" +  movie.id
+      a(href=url)= movie.title
