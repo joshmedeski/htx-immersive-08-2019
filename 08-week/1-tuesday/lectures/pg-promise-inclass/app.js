@@ -42,6 +42,9 @@ app.get("/movies", async function(req, res) {
 app.get("/movies/:id", async function(req, res) {
   try {
     let data = {};
+    if (req.session.user_id) data.isLoggedIn = true;
+    data.movieId = req.params.id;
+    // check if logged in
     data.movie = await db.getMovie(req.params.id);
     res.render("movie", data);
   } catch (e) {

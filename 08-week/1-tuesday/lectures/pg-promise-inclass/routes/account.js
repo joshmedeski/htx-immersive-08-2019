@@ -41,12 +41,15 @@ router.post("/new", async (req, res) => {
 });
 
 // /account/dashboard
-router.get("/dashboard", authenticate, (req, res) => {
-  if (!req.session.favMovies) req.session.favMovies = [];
-  res.render("account/dashboard", {
-    favMovies: req.session.favMovies,
-    name: req.session.name || "buddy"
-  });
+router.get("/dashboard", authenticate, async (req, res) => {
+  try {
+    let data = {};
+    data.favMovies = await db.getFavorites(req.session.user_id);
+    console.log(data.favMovies);
+    res.render("account/dashboard", data);
+  } catch (e) {
+    res.send(e);
+  }
 });
 
 router.get("/settings", authenticate, (req, res) => {
@@ -87,6 +90,16 @@ router.post("/login", async function(req, res) {
   } catch (e) {
     console.error(e);
     res.send(e);
+  }
+});
+
+router.post("/favorites/add", async (req, res) => {
+  try {
+    await db.addFavorite(req.session.user_id, req.body.movieId);
+    res.redirect("/account/dashboard");
+  } catch (e) {
+    console.error(e);
+    req.send(e);
   }
 });
 

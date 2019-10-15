@@ -5,6 +5,13 @@ function getMovies() {
   return db.any("SELECT id, title FROM movies;");
 }
 
+function getFavorites(userId) {
+  return db.any(
+    "SELECT title FROM favorites INNER JOIN movies ON(favorites.movie_id = movies.id) WHERE user_id = $1;",
+    [userId]
+  );
+}
+
 function findUser(email) {
   return db.oneOrNone("SELECT * FROM users WHERE email = $1;", [email]);
 }
@@ -20,9 +27,18 @@ function createUser(email, password) {
   ]);
 }
 
+function addFavorite(userId, movieId) {
+  return db.none("INSERT INTO favorites (user_id, movie_id) VALUES ($1, $2)", [
+    userId,
+    movieId
+  ]);
+}
+
 module.exports = {
   getMovies: getMovies,
   getMovie: getMovie,
   findUser: findUser,
-  createUser: createUser
+  createUser: createUser,
+  addFavorite: addFavorite,
+  getFavorites: getFavorites
 };
