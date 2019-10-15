@@ -12,10 +12,3 @@ append content
   if favMovies.length
     each movie in favMovies
       li= movie.title
-
-  hr
-  form.form-inline(method="POST" action="/account/add")
-    .form-group.mb-2
-      label.sr-only(for="title") Title
-      input#title.form-control(name="title" type='text' placeholder="Enter movie title")
-    button.btn.btn-primary.mb-2 Add
