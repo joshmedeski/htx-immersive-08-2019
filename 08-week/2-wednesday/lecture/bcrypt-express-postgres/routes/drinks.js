@@ -13,6 +13,16 @@ router.post("/", async (req, res) => {
   res.redirect(`/drinks/${newDrink.id}`);
 });
 
+router.get("/", async (req, res) => {
+  try {
+    let data = {};
+    data.drinks = await db.getDrinks();
+    res.render("drinks", data);
+  } catch (e) {
+    res.send(e);
+  }
+});
+
 router.get("/:id", async (req, res) => {
   try {
     let data = {};

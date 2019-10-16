@@ -1,0 +1,14 @@
+extend layouts/page
+
+block content
+  h2 Drinks
+  if !drinks
+    p No drinks are in the system yet, please add one.
+  if drinks
+    ul
+    each drink in drinks
+      li
+        - var drinkUrl = "/drinks/" + drink.id
+        a(href=drinkUrl)= drink.name
+        | &nbsp;
+        span.badge.badge-secondary= drink.cat

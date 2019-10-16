@@ -36,6 +36,12 @@ function getDrink(id) {
   );
 }
 
+function getDrinks() {
+  return pgpDb.any(
+    "SELECT d.name, d.ingredients, d.id, c.name AS cat FROM drinks d INNER JOIN categories c ON(d.cat_id = c.id)"
+  );
+}
+
 function getCategories() {
   return pgpDb.any("SELECT id, name FROM categories ORDER BY name ASC;");
 }
@@ -45,5 +51,6 @@ module.exports = {
   createUser: createUser,
   createDrink: createDrink,
   getDrink: getDrink,
+  getDrinks: getDrinks,
   getCategories: getCategories
 };
