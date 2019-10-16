@@ -3,6 +3,8 @@ const db = require("../helpers/database");
 const router = express.Router();
 
 router.get("/", (req, res) => {
+  console.log("USER ID:");
+  console.log(req.session.user_id);
   res.render("account");
 });
 

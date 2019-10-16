@@ -21,10 +21,10 @@ function createUser(email, password) {
   ]);
 }
 
-function createDrink(name, ingredients, cat_id) {
+function createDrink(name, ingredients, cat_id, user_id) {
   return pgpDb.one(
-    "INSERT INTO drinks (name, ingredients, cat_id) VALUES ($1, $2, $3) RETURNING id",
-    [name, ingredients, cat_id]
+    "INSERT INTO drinks (name, ingredients, cat_id, user_id) VALUES ($1, $2, $3, $4) RETURNING id",
+    [name, ingredients, cat_id, user_id]
   );
 }
 

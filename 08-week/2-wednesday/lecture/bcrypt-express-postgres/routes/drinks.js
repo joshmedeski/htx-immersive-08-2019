@@ -8,7 +8,8 @@ router.post("/", async (req, res) => {
   let newDrink = await db.createDrink(
     req.body.name,
     JSON.stringify(ingredients),
-    req.body.cat
+    req.body.cat,
+    req.session.user_id
   );
   res.redirect(`/drinks/${newDrink.id}`);
 });
