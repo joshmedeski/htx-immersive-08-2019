@@ -2,6 +2,8 @@ const express = require("express");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
+const accountRouter = require("./routes/account");
+const drinksRouter = require("./routes/drinks");
 const db = require("./helpers/database");
 const app = express();
 
@@ -24,9 +26,8 @@ app.get("/register", (req, res) => {
   res.render("register");
 });
 
-app.get("/account", (req, res) => {
-  res.render("account");
-});
+app.use("/account", accountRouter);
+app.use("/drinks", drinksRouter);
 
 app.get("/login", (req, res) => {
   let data = {};

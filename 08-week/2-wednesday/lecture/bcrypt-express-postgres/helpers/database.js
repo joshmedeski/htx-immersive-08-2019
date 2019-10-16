@@ -15,13 +15,35 @@ function checkForUser(email) {
 }
 
 function createUser(email, password) {
-  return pgpDb.none(`INSERT INTO users (email, password) VALUES ($1, $2)`, [
+  return pgpDb.none("INSERT INTO users (email, password) VALUES ($1, $2)", [
     email,
     password
   ]);
 }
 
+function createDrink(name, ingredients, cat_id) {
+  return pgpDb.one(
+    "INSERT INTO drinks (name, ingredients, cat_id) VALUES ($1, $2, $3) RETURNING id",
+    [name, ingredients, cat_id]
+  );
+}
+
+function getDrink(id) {
+  // "SELECT title FROM favorites INNER JOIN movies ON(favorites.movie_id = movies.id) WHERE user_id = $1;",
+  return pgpDb.one(
+    "SELECT d.name, d.ingredients, d.id, c.name AS cat FROM drinks d INNER JOIN categories c ON(d.cat_id = c.id) WHERE d.id = $1",
+    [id]
+  );
+}
+
+function getCategories() {
+  return pgpDb.any("SELECT id, name FROM categories ORDER BY name ASC;");
+}
+
 module.exports = {
   checkForUser: checkForUser,
-  createUser: createUser
+  createUser: createUser,
+  createDrink: createDrink,
+  getDrink: getDrink,
+  getCategories: getCategories
 };
