@@ -10,10 +10,12 @@ app.use(
     saveUninitialized: true
   })
 );
-
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "pug");
 
-// other code goes here
+app.get("/", (req, res) => {
+  res.render("index");
+});
 
 app.listen(3000);
