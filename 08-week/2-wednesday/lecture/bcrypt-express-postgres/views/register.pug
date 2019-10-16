@@ -1,0 +1,13 @@
+extend layouts/page
+
+block content
+  h2 Register
+  form(method="POST" action="/users")
+    .form-group
+      label(for='email') Email address
+      input#email.form-control(name="email" type='email' aria-describedby='emailHelp' placeholder='Enter email')
+      small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
+    .form-group
+      label(for='password') Password
+      input#password.form-control(name="password" type='password' placeholder='Enter password')
+    button.btn.btn-primary(type='submit') Register
