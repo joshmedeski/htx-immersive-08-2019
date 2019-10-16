@@ -9,8 +9,7 @@ block content
     each ingredient in drink.ingredients
       li= ingredient
   br
-  if currentUser
-    - var editUrl = '/drinks/' + drink.id + '/edit'
-    a.button.button-secondary(href=editUrl) Edit Drink
+  - var editUrl = '/account/drinks/edit/' + drink.id
+  a.button.button-secondary(href=editUrl) Edit Drink
   br
   a(href="/drinks") Back to drinks

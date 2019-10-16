@@ -1,0 +1,23 @@
+extend layouts/account
+
+block account
+  h2 Edit #{drink.name}
+
+  - var actionUrl = "/account/drinks/" + drink.id
+  form(method="POST" action=actionUrl)
+    .form-group
+      label(for='name') Name
+      input#name.form-control(name="name" type='text' placeholder='Enter drink name' value=drink.name)
+    .form-group
+      label(for='ingredients') Ingredients
+      input#ingredients.form-control(name="ingredients" type='text' placeholder='Enter drink\'s ingredients' value=drink.ingredients)
+      small.form-text.form-muted Separate ingredients by a comma
+    .form-group
+      label(for="cat") Categories
+      select#cat.form-control(name="cat")
+        each cat in categories
+          if cat.name == drink.cat
+            option(value=cat.id selected="selected")= cat.name
+          else
+            option(value=cat.id)= cat.name
+    button.btn.btn-primary(type='submit') Edit Drink

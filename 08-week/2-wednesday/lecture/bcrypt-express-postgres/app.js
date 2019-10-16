@@ -46,14 +46,12 @@ app.post("/login", async (req, res) => {
   try {
     // check user exists in db
     let dbUser = await db.checkForUser(req.body.email);
-    console.log(dbUser);
     if (!dbUser) throw new Error("Login failed");
     bcrypt.compare(req.body.password, dbUser.password, (err, same) => {
       if (err) throw err;
       // check the password matches
       if (!same) throw new Error("Incorrect password");
       // login and redirect (save user_id to session, go to dashboard)
-      console.log("DB USER ID", dbUser.id);
       req.session.user_id = dbUser.id;
       res.redirect("/account");
     });

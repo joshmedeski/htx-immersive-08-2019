@@ -3,11 +3,9 @@ const router = express.Router();
 const db = require("../helpers/database");
 
 router.post("/", async (req, res) => {
-  let ingredients = req.body.ingredients.split(",").map(i => i.trim());
-  // insert into database
   let newDrink = await db.createDrink(
     req.body.name,
-    JSON.stringify(ingredients),
+    req.body.ingredients,
     req.body.cat,
     req.session.user_id
   );

@@ -1,6 +1,10 @@
 const pgp = require("pg-promise")();
 const pgpDb = pgp("postgres://localhost:5432/bcrypt_site");
 
+function toArray(commaSeparatedString) {
+  return JSON.stringify(commaSeparatedString.split(",").map(i => i.trim()));
+}
+
 /**
  * Checks if there is a user with the given email in the database.
  *
@@ -24,7 +28,7 @@ function createUser(email, password) {
 function createDrink(name, ingredients, cat_id, user_id) {
   return pgpDb.one(
     "INSERT INTO drinks (name, ingredients, cat_id, user_id) VALUES ($1, $2, $3, $4) RETURNING id",
-    [name, ingredients, cat_id, user_id]
+    [name, toArray(ingredients), cat_id, user_id]
   );
 }
 
@@ -46,11 +50,19 @@ function getCategories() {
   return pgpDb.any("SELECT id, name FROM categories ORDER BY name ASC;");
 }
 
+function updateDrink(name, ingredients, cat_id, id) {
+  return pgpDb.none(
+    "UPDATE drinks SET name = $1, ingredients = $2, cat_id = $3 WHERE id = $4",
+    [name, toArray(ingredients), cat_id, id]
+  );
+}
+
 module.exports = {
   checkForUser: checkForUser,
   createUser: createUser,
   createDrink: createDrink,
   getDrink: getDrink,
   getDrinks: getDrinks,
-  getCategories: getCategories
+  getCategories: getCategories,
+  updateDrink: updateDrink
 };
