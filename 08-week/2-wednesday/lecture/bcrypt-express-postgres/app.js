@@ -24,11 +24,40 @@ app.get("/register", (req, res) => {
   res.render("register");
 });
 
+app.get("/account", (req, res) => {
+  res.render("account");
+});
+
 app.get("/login", (req, res) => {
   let data = {};
   if (req.query.registeredSuccessfully) data.registeredSuccessfully = true;
-
+  if (req.query.loggedOutSuccessfully) data.loggedOutSuccessfully = true;
   res.render("login", data);
+});
+
+app.get("/logout", (req, res) => {
+  let data = {};
+  req.session.destroy();
+  res.redirect("/login?loggedOutSuccessfully=true");
+});
+
+app.post("/login", async (req, res) => {
+  try {
+    // check user exists in db
+    let dbUser = await db.checkForUser(req.body.email);
+    console.log(dbUser);
+    if (!dbUser) throw new Error("Login failed");
+    bcrypt.compare(req.body.password, dbUser.password, (err, same) => {
+      if (err) throw err;
+      // check the password matches
+      if (!same) throw new Error("Incorrect password");
+      // login and redirect (save user_id to session, go to dashboard)
+      req.session.user_id = dbUser.id;
+      res.redirect("/account");
+    });
+  } catch (e) {
+    res.send(e);
+  }
 });
 
 app.post("/users", async (req, res) => {

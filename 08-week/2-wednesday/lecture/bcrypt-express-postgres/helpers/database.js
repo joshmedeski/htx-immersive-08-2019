@@ -8,7 +8,10 @@ const pgpDb = pgp("postgres://localhost:5432/bcrypt_site");
  * @returns nothing if there is no user, the user if they exist
  */
 function checkForUser(email) {
-  return pgpDb.oneOrNone("SELECT email FROM users WHERE email = $1", [email]);
+  return pgpDb.oneOrNone(
+    "SELECT email, password, id FROM users WHERE email = $1",
+    [email]
+  );
 }
 
 function createUser(email, password) {

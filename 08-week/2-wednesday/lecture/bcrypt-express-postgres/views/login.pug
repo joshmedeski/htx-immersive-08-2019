@@ -4,7 +4,9 @@ block content
   h2 Login
   if registeredSuccessfully
     .alert.alert-success Registered successfully, please log in.
-  form(method="POST" action="/users")
+  if loggedOutSuccessfully
+    .alert.alert-success Logged Out Successfully
+  form(method="POST" action="/login")
     .form-group
       label(for='email') Email address
       input#email.form-control(name="email" type='email' aria-describedby='emailHelp' placeholder='Enter email')
@@ -12,4 +14,4 @@ block content
     .form-group
       label(for='password') Password
       input#password.form-control(name="password" type='password' placeholder='Enter password')
-    button.btn.btn-primary(type='submit') Register
+    button.btn.btn-primary(type='submit') Log In
