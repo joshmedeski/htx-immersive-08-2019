@@ -1,4 +1,4 @@
-const pgp = require("pg-promise");
+const pgp = require("pg-promise")();
 const pgpDb = pgp("postgres://localhost:5432/bcrypt_site");
 
 /**
@@ -11,6 +11,14 @@ function checkForUser(email) {
   return pgpDb.oneOrNone("SELECT email FROM users WHERE email = $1", [email]);
 }
 
+function createUser(email, password) {
+  return pgpDb.none(`INSERT INTO users (email, password) VALUES ($1, $2)`, [
+    email,
+    password
+  ]);
+}
+
 module.exports = {
-  checkForUser: checkForUser
+  checkForUser: checkForUser,
+  createUser: createUser
 };

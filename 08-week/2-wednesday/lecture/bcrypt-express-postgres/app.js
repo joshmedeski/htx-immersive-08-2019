@@ -1,6 +1,7 @@
 const express = require("express");
 const session = require("express-session");
 const bodyParser = require("body-parser");
+const bcrypt = require("bcrypt");
 const db = require("./helpers/database");
 const app = express();
 
@@ -23,6 +24,13 @@ app.get("/register", (req, res) => {
   res.render("register");
 });
 
+app.get("/login", (req, res) => {
+  let data = {};
+  if (req.query.registeredSuccessfully) data.registeredSuccessfully = true;
+
+  res.render("login", data);
+});
+
 app.post("/users", async (req, res) => {
   try {
     // check if email already exists
@@ -31,7 +39,12 @@ app.post("/users", async (req, res) => {
       throw new Error("Issue with email or password");
     }
     // encrypt password
-    // post to database
+    bcrypt.hash(req.body.password, 10, (err, encrypted) => {
+      if (err) throw err;
+      // post to database
+      db.createUser(req.body.email, encrypted);
+      res.redirect("/login?registeredSuccessfully=true");
+    });
   } catch (e) {
     res.send(e);
   }
