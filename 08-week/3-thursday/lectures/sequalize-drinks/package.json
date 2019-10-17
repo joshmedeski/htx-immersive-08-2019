@@ -13,5 +13,8 @@
     "express": "^4.17.1",
     "pug": "^2.0.4",
     "sequelize": "^5.19.8"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^5.5.1"
   }
 }
