@@ -16,11 +16,14 @@ app.use(
 );
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.set("view engine", "pug");
 
-app.get("/", (req, res) => {
+app.get("/", bodyParser, onHomePageLoad, afterPageLoads);
+
+function onHomePageLoad(req, res) {
   res.render("index");
-});
+}
 
 app.get("/register", (req, res) => {
   res.render("register");

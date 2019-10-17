@@ -1,5 +1,5 @@
-const pgp = require("pg-promise")();
-const pgpDb = pgp("postgres://localhost:5432/bcrypt_site");
+const msqlp = require("mysql-promise")();
+const pgpDb = "mysql://localhost:5432/bcrypt_site";
 
 function toArray(commaSeparatedString) {
   return JSON.stringify(commaSeparatedString.split(",").map(i => i.trim()));
