@@ -1,6 +1,8 @@
+const dotenv = require("dotenv");
 const express = require("express");
 const models = require("./models");
 const app = express();
+dotenv.config();
 
 app.set("view engine", "pug");
 
