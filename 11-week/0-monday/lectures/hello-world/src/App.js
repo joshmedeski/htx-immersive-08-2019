@@ -2,26 +2,21 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload and see the new
-          information dynamically, without me reloading the page.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      // '<>' is the same thing as '<React.Fragment>'
+      <>
+        <header className="header">Header</header>
+        <h1 className="greeting">Hello</h1>
+        <footer className="footer">Footer</footer>
+      </>
+    );
+  }
 }
+
+// The developer doesn't create the instance like this.
+// const app = new App();
+// console.log(app);
 
 export default App;
