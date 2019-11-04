@@ -1,5 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import "./App.css";
 
 class App extends React.Component {
@@ -7,9 +9,8 @@ class App extends React.Component {
     return (
       // '<>' is the same thing as '<React.Fragment>'
       <>
-        <header className="header">Header</header>
-        <h1 className="greeting">Hello</h1>
-        <footer className="footer">Footer</footer>
+        <Header />
+        <Footer />
       </>
     );
   }
