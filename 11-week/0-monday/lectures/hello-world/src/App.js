@@ -9,7 +9,7 @@ class App extends React.Component {
     return (
       // '<>' is the same thing as '<React.Fragment>'
       <>
-        <Header />
+        <Header greeterName="Josh" />
         <Footer />
       </>
     );
