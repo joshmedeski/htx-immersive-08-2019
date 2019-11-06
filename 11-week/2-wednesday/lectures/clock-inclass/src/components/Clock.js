@@ -7,9 +7,14 @@ export default class Clock extends Component {
   }
 
   componentDidMount() {
-    setInterval(() => {
+    this.clockInterval = setInterval(() => {
+      console.log(`Clock ${this.props.number}'s Interval`);
       this.setState({ time: new Date() });
     }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.clockInterval);
   }
 
   render() {
