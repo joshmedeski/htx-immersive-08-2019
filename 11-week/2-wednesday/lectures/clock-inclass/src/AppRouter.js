@@ -20,7 +20,7 @@ export default function AppRouter() {
       <Switch>
         <Route exact path="/">
           <Clock number={1} />
-          <Clock number="second" />
+          <Clock number={1.5} />
         </Route>
         <Route exact path="/clock-2">
           <Clock number={2} />

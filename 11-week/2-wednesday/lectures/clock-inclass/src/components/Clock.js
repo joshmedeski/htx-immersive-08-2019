@@ -10,6 +10,16 @@ export default class Clock extends Component {
     this.clockInterval = setInterval(() => {
       console.log(`Clock ${this.props.number}'s Interval`);
       this.setState({ time: new Date() });
+
+      // If you need something from state or props when setting state,
+      // use the anonymous function instead.
+      //
+      // this.setState((state, props) => {
+      //   return {
+      //     time: new Date(),
+      //     people: (state.people += 1)
+      //   };
+      // });
     }, 1000);
   }
 
