@@ -4,32 +4,23 @@ import "./App.css";
 
 var isLoggedIn = true;
 
-function App() {
+function App(props) {
+  var button;
+  button;
+  if (isLoggedIn) {
+    button = <Logout name={props.name} />;
+  } else {
+    button = <Login name={props.name} />;
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <UserStatusButton name="Josh" />
-        {/* <p>{isLoggedIn ? "Logout" : "Login"}</p> */}
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {button}
       </header>
     </div>
   );
-}
-
-function UserStatusButton(props) {
-  if (isLoggedIn) {
-    return <Logout name={props.name} />;
-  } else {
-    return <Login name={props.name} />;
-  }
 }
 
 function Login(props) {
