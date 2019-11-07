@@ -6,29 +6,37 @@ var isLoggedIn = true;
 
 function App(props) {
   var button;
-  button;
   if (isLoggedIn) {
-    button = <Logout name={props.name} />;
+    button = <Logout />;
   } else {
-    button = <Login name={props.name} />;
+    button = <Login />;
   }
 
   return (
     <div className="App">
+      {false ? <GreeterMessage name={null} /> : null}
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         {button}
+        {isLoggedIn ? <Logout /> : <Login />}
       </header>
     </div>
   );
 }
 
-function Login(props) {
-  return <button>Log {props.name} In</button>;
+function GreeterMessage(props) {
+  // Conditional Guard
+  if (!props.name) return null;
+
+  return <h1>Hello, {props.name}</h1>;
 }
 
-function Logout(props) {
-  return <button>Log {props.name} Out</button>;
+function Login() {
+  return <button>Log In</button>;
+}
+
+function Logout() {
+  return <button>Log Out</button>;
 }
 
 export default App;
