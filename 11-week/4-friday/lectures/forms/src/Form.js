@@ -22,9 +22,9 @@ export default class Form extends React.Component {
   }
 
   render() {
-    let comments = this.state.comments.map(item => {
+    let comments = this.state.comments.map((item, index) => {
       return (
-        <li>
+        <li key={index}>
           {item.name}: {item.comment}
         </li>
       );
