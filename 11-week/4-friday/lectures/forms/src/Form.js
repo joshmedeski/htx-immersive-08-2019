@@ -3,27 +3,31 @@ import React from "react";
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "", comments: [] };
+    this.state = { name: "", comment: "", comments: [] };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ name: event.target.value });
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
     this.setState(state => {
       let newComments = [...state.comments];
-      newComments.push(state.name);
-      return { name: "", comments: newComments };
+      newComments.push({ name: state.name, comment: state.comment });
+      return { name: "", comment: "", comments: newComments };
     });
   }
 
   render() {
-    let comments = this.state.comments.map(comment => {
-      return <li>{comment}</li>;
+    let comments = this.state.comments.map(item => {
+      return (
+        <li>
+          {item.name}: {item.comment}
+        </li>
+      );
     });
 
     return (
@@ -37,6 +41,14 @@ export default class Form extends React.Component {
           placeholder="Enter your name"
           onChange={this.handleChange}
         />
+        <br />
+        <textarea
+          name="comment"
+          type="text"
+          value={this.state.comment}
+          onChange={this.handleChange}
+        />
+        <br />
         <button>Submit</button>
 
         <h3>Comments</h3>
