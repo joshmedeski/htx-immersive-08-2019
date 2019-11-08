@@ -9,15 +9,15 @@ export default class Form extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    this.setState({ name: event.target.value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
     this.setState(state => {
       let newComments = [...state.comments];
-      newComments.push(state.value);
-      return { value: "", comments: newComments };
+      newComments.push(state.name);
+      return { name: "", comments: newComments };
     });
   }
 
@@ -31,10 +31,10 @@ export default class Form extends React.Component {
         <label>Comment</label>
         <br />
         <input
-          name="value"
+          name="name"
           type="text"
-          value={this.state.value}
-          placeholder="Enter comment"
+          value={this.state.name}
+          placeholder="Enter your name"
           onChange={this.handleChange}
         />
         <button>Submit</button>
