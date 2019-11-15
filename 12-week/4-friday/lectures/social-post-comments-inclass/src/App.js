@@ -3,9 +3,9 @@ import React from "react";
 export default function App() {
   return (
     <div className="container">
-      <h1>Posts</h1>
-      <h2>Create New Post</h2>
+      <h1>Social Post Comments Exercise</h1>
       <form className="post-form">
+        <h3>Create New Post</h3>
         <label>Name</label>
         <input
           name="post-form-name"
@@ -16,6 +16,7 @@ export default function App() {
         <button>Submit</button>
       </form>
       {/* loop through post */}
+      <h2>Posts</h2>
       <div className="post">
         <p className="post-name">
           <strong>Josh</strong>

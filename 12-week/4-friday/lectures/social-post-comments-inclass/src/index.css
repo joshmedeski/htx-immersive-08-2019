@@ -6,7 +6,23 @@ button {
   margin-bottom: 5px;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
 .container {
   max-width: 500px;
   margin: 0 auto;
+}
+
+.post,
+.post-form {
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 20px;
 }
