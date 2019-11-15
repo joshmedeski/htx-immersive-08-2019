@@ -6,8 +6,8 @@ export default class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: this.props.post.name,
-      content: this.props.post.content,
+      name: this.props.name,
+      content: this.props.content,
       comments: []
     };
     this.callbackOnNewCommentSubmit = this.callbackOnNewCommentSubmit.bind(
@@ -18,7 +18,7 @@ export default class Post extends React.Component {
   callbackOnNewCommentSubmit(newComment) {
     this.setState(currentState => {
       return {
-        comments: [newComment].concat(currentState.comments)
+        comments: currentState.comments.concat([newComment])
       };
     });
   }

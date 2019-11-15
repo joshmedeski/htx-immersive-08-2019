@@ -12,7 +12,7 @@ export default class App extends React.Component {
   callbackOnNewPostSubmit(newPost) {
     this.setState(currentState => {
       return {
-        posts: [newPost].concat(currentState.posts)
+        posts: currentState.posts.concat([newPost])
       };
     });
   }
@@ -24,7 +24,7 @@ export default class App extends React.Component {
         <NewPost parentCallbackOnSubmit={this.callbackOnNewPostSubmit} />
         <h2>Posts</h2>
         {this.state.posts.map((post, index) => {
-          return <Post post={post} key={index} />;
+          return <Post name={post.name} content={post.content} key={index} />;
         })}
       </div>
     );
