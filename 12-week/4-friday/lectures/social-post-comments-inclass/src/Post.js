@@ -1,5 +1,6 @@
 import React from "react";
 import Comment from "./Comment";
+import NewPost from "./NewPost";
 
 export default class Post extends React.Component {
   constructor(props) {
@@ -9,6 +10,17 @@ export default class Post extends React.Component {
       content: this.props.post.content,
       comments: []
     };
+    this.callbackOnNewCommentSubmit = this.callbackOnNewCommentSubmit.bind(
+      this
+    );
+  }
+
+  callbackOnNewCommentSubmit(newComment) {
+    this.setState(currentState => {
+      return {
+        comments: [newComment].concat(currentState.comments)
+      };
+    });
   }
 
   render() {
@@ -31,21 +43,7 @@ export default class Post extends React.Component {
               />
             );
           })}
-          <form className="post-comments-form">
-            <h3>Create New Comment</h3>
-            <label>Name</label>
-            <input
-              type="text"
-              name="post-comment-form-name"
-              placeholder="Enter your name"
-            />
-            <input
-              type="text"
-              name="post-comment-form-content"
-              placeholder="Enter your comment"
-            />
-            <button>Submit</button>
-          </form>
+          <NewPost parentCallbackOnSubmit={this.callbackOnNewCommentSubmit} />
         </div>
       </div>
     );

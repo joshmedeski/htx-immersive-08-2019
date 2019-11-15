@@ -30,7 +30,7 @@ export default class NewPost extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handelOnSubmit} className="post-form">
+      <form onSubmit={this.handelOnSubmit}>
         <h3>Create New Post</h3>
         <label>Name</label>
         <input
@@ -44,7 +44,7 @@ export default class NewPost extends React.Component {
           onChange={this.handelOnChange}
           value={this.state.content}
           name="content"
-          cols="30"
+          cols="20"
           rows="10"
         ></textarea>
         <button>Submit</button>
