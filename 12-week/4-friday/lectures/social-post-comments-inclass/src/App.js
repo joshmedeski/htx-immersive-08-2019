@@ -2,6 +2,9 @@ import React from "react";
 import NewPost from "./NewPost";
 import Post from "./Post";
 
+// <App name="josh" />;
+// new App(props); // props = { name: 'josh' }
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
