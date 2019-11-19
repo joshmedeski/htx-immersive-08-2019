@@ -2,6 +2,7 @@ import React from "react";
 import { Provider } from "react-redux";
 import { store as appStore } from "./redux/store";
 import CounterDisplay from "./components/CounterDisplay";
+import IncrementButton from "./components/IncrementButton";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <h1>Redux with React</h1>
       <p>Simple counter exercise</p>
       <CounterDisplay />
+      <IncrementButton />
     </Provider>
   );
 }
