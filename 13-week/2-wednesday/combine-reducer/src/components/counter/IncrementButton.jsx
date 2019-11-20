@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { increment as incrementAction } from "../redux/actions/counter-actions";
+import { increment as incrementAction } from "../../redux/actions/counter-actions";
 
 function IncrementButton({ increment }) {
   return (
