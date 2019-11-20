@@ -4,6 +4,7 @@ import { store as appStore } from "./redux/store";
 import Count from "./components/counter/Count";
 import IncrementButton from "./components/counter/IncrementButton";
 import TodoList from "./components/todos/TodoList";
+import AddTodoForm from "./components/todos/AddTodoForm";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <hr />
       <h2>Todo List</h2>
       <TodoList />
+      <AddTodoForm />
     </Provider>
   );
 }
