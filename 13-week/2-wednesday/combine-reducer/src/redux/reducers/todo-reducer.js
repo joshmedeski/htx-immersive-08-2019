@@ -5,7 +5,7 @@ import {
 } from "../action-types/todo-action-types";
 import TodoItem from "../classes/todo-item-class";
 
-const initialState = [];
+const initialState = [new TodoItem("Start todo list", 0)];
 
 function generateId(tasks) {
   if (tasks.length < 1) return 0;
